@@ -1,6 +1,6 @@
 // netlify/functions/api.js
 import express from "express";
-import { handler } from "@netlify/functions";  // Importar handler de Netlify Functions
+import serverless from "serverless-http";
 import { configDotenv } from "dotenv";
 import MongoConexion from "../../database/conexion.mongodb.js";  // Ajusta la ruta a tus archivos
 import rutasDeLosProductos from "../../routers/product.routers.js";
@@ -28,14 +28,14 @@ app.use(express.json());
 MongoConexion();
 
 // Rutas
-app.use("/api", rutasDeLosProductos);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/.netlify/functions/api", rutasDeLosProductos);
+app.use("/.netlify/functions/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Rutas estáticas para los uploads
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/.netlify/functions/api/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Ruta principal
 app.get('/', (req, res) => res.send('Hello World!'));
 
 // Handler para la función serverless
-export const handler = handler(app);
+export const handler = serverless(app);

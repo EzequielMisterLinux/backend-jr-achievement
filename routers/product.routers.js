@@ -3,7 +3,6 @@ import AgregarProducto from "../controllers/agregar.productos.js";
 import ObteniendoTodosLosProductos from "../controllers/ver-todos-productos.js";
 import BorrandoProducto from "../controllers/delete.productos.js";
 import ActualizarProducto from "../controllers/actualizando.producto.js";
-
 import CreateUser from "../controllers/register.user.js";
 import LoginUser from "../controllers/login.user.js";
 import verifyToken from "../controllers/verifyToken-controller.js";
