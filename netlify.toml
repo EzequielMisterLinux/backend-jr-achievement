@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"  # Ubicación de las funciones
+  publish = "public"  # Si tienes archivos estáticos, indica la carpeta donde Netlify los debe buscar
+
+[dev]
+  functions = "netlify/functions"
+  port = 8888  # El puerto donde se ejecutará en desarrollo
