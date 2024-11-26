@@ -18,7 +18,7 @@ const MongoConexion = async () => {
         console.error(error);
         
     }
-
+    
 }
 
 export default MongoConexion
