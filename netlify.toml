@@ -1,7 +1,0 @@
-[build]
-  functions = "netlify/functions"  # Directorio de funciones
-  publish = "."  # Directorio raíz (o no poner publish si no tienes archivos estáticos)
-
-[dev]
-  functions = "netlify/functions"
-  port = 8888  # Puerto para desarrollo local
