@@ -18,7 +18,7 @@ rutasDeLosProductos.post("/crear-usuario", Protected, CreateUser)
 
 rutasDeLosProductos.get("/get-users", Protected ,getAllUsers)
 
-rutasDeLosProductos.put("/users-update/:id", UpdateUser)
+rutasDeLosProductos.put("/users-update/:id",Protected, UpdateUser)
 
 rutasDeLosProductos.post("/login", LoginUser)
 

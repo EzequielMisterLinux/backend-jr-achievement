@@ -7,6 +7,7 @@ import { swaggerDocs, swaggerUi } from "./swagger.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import cookieParser from 'cookie-parser';
+import Protected from "./middleware/protected.js";
 
 configDotenv();
 
@@ -29,8 +30,8 @@ app.use(express.json());
 MongoConexion();
 
 app.use("/api", rutasDeLosProductos);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/api-docs", Protected, swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/uploads", Protected, express.static(path.join(__dirname, "uploads")));
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
